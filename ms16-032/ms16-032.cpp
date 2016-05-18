@@ -146,7 +146,7 @@ int main()
 		while (true)
 		{
 			PROCESS_INFORMATION procInfo = {};
-			STARTUPINFO startInfo = {};
+			STARTUPINFOW startInfo = {};
 			startInfo.cb = sizeof(startInfo);
 
 			if (CreateProcessWithLogonW(L"test", L"test", L"test",
