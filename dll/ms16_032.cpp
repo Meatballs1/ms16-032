@@ -20,10 +20,10 @@ HANDLE GetThreadHandle()
 
 	if (CreateProcessWithLogonW(L"test", L"test", L"test",
 		LOGON_NETCREDENTIALS_ONLY,
-		nullptr, L"cmr, &startInfo, &procInfo))
+		nullptr, L"cmd.exe", CREATE_SUSPENDED,
+		nullptr, nullptr, &startInfo, &procInfo))
 	{
-		HANDLE hThread;d.exe", CREATE_SUSPENDED | CREATE_NO_WINDOW,
-		nullptr, nullpt
+		HANDLE hThread;
 		BOOL res = DuplicateHandle(procInfo.hProcess, (HANDLE)0x4,
 			GetCurrentProcess(), &hThread, 0, FALSE, DUPLICATE_SAME_ACCESS);
 		DWORD dwLastError = GetLastError();
